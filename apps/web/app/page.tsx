@@ -1,12 +1,16 @@
-import { Button } from "@workspace/ui/components/button"
+"use client"
+
+import { RelationDrawer } from "@/components/relation/RelationDrawer"
+import { useState } from "react"
+import { ChartFlow } from "@/components/chart-flow/ChartFlow"
 
 export default function Page() {
+  const [open, setOpen] = useState(false)
   return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
+
+    <div className="flex items-center justify-center min-h-svh overflow-auto">
+      <ChartFlow />
+      <RelationDrawer open={open} onOpenChange={setOpen} />
     </div>
   )
 }
